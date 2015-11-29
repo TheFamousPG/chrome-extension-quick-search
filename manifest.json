@@ -1,0 +1,21 @@
+{
+  "name": "Google Quick Search",
+  "version": "1.0",
+  "manifest_version": 2,
+  "author" : "Mathieu Lescaudron",
+  "description": "Press \"Double Shift\" and search quickly !",
+
+  "icons":{
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/jquery.js", "scripts/quick-search.js"],
+      "css": ["css/quick-search.css"]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ]
+}
