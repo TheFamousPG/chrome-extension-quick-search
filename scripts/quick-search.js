@@ -32,9 +32,16 @@ var quickSearch = {
     // show the popup
     show:function(){
         quickSearch.remove();
+
+        var icon = chrome.extension.getURL("images/icon128.png");
+        console.log(icon);
         $('body').prepend('<form id="chrome-extension-google-quick-search" action="https://www.google.com/search" method="GET" target="_blank"><input type="text" id="chrome-extension-google-quick-search-input" name="q" placeholder="Press Enter when finished ;)"/></form>').find('#chrome-extension-google-quick-search-input').focus().on('click',function(e){
             e.stopPropagation();
             e.preventDefault();
+        });
+        $('#chrome-extension-google-quick-search-input').css('background','url("'+icon+'") 99% 7px no-repeat');
+        $('#chrome-extension-google-quick-search').on('submit',function(){
+            $(this).remove();
         });
     },
 
